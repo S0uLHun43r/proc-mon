@@ -40,9 +40,11 @@ while 1:
         exec_result = exec_result - exec_base
         exec_tmp_add = copy.deepcopy(exec_result)
         #根据过滤条件过滤
+        f = open('filter.txt','r')
+        filter = f.readlines()
         if exec_tmp_add:
             for a in exec_tmp_add:
-                for b in open('filter.txt'):
+                for b in filter:
                     #判断不为空行
                     if (b.strip()!='') and (b.strip() in a):
                         exec_result.remove(a)
